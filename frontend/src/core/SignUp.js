@@ -1,38 +1,89 @@
 import React, { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
 import Navigation from './Navigation';
 import './SignUp.css'
-import { signUp } from './apiCore';
+import { signup, authenticate } from './apiCore';
 
 
 const SignUp = () => {
+
+    const [values, setValues] = useState({
+        name: '',
+        email: '',
+        password: '',
+        error: '',
+        success: false,
+      });
+
+      const {name, email, password, error, success} = values; 
+      
+      const handleChange = name => event => {
+        setValues({...values, error: false, [name]: event.target.value})
+      }
+
+      const clickSubmit = (event) => {
+        event.preventDefault();
+        setValues({...values, error: false, success: true})
+        signup({name, email, password})
+          .then(data => {
+            if (data.error) {
+              setValues({...values, error: data.error, success:false})
+            } else {
+              authenticate(
+                data, () => {
+                  setValues({
+                    ...values,
+                    name: '',
+                    email: '',
+                    password: '',
+                    error: '',
+                    success: true
+                  })
+                }
+              )
+            }
+          })
+      }
+
+      const showError = () => (
+        <div className='alert alert-danger' style={{ display: error ? '' : 'none' }}>
+          {error}
+        </div>
+      )
+    
+      const showSuccess = () => (
+        <div className='alert alert-info' style={{display: success ? '':'none'}}>  New Account Successfully Created You can now
+          <Link to='/signin'>Sign in</Link>
+        </div>
+      )
 
     const signUpForm = () => (
         <form className="sign-box">
           <div className='form-group'>
             <label className='text-muted'>Name</label>
             <input
-              onChange=''
-              value=''
+              onChange={handleChange('name')}
+              value={name}
               type='text'
               className='form-control'/>
           </div>
           <div className='form-group'>
             <label className='text-muted'>email</label>
             <input
-              onChange=''
+              onChange={handleChange('email')}
               type='email'
-              value=''
+              value={email}
               className='form-control'/>
           </div>
           <div className='form-group'>
             <label>Password</label>
             <input
-              onChange=''
-              value=''
+              onChange={handleChange('password')}
+              value={password}
               type='password'
               className='form-control'/>
           </div>
-          <button onClick='' className='btn btn-primary'>
+          <button onClick={clickSubmit} className='btn btn-primary'>
             Sign Up
           </button>
         </form>
@@ -43,6 +94,8 @@ const SignUp = () => {
         <Navigation/>
         <div className='mt-5'>
         <h4 className='text-center mb-5'>Sing Up</h4>
+        {showError()}
+        {showSuccess()}
         {signUpForm()}
         </div>
         </>

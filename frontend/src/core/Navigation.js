@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Navbar, NavItem } from "reactstrap";
+import { NavItem } from "reactstrap";
 
 import { isAuthenticated, signout } from "./apiCore";
 

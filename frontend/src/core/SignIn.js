@@ -9,11 +9,11 @@ const SignIn = () => {
         email: '',
         password: '',
         error: '',
-        loading: false,
+        success: false,
         redirectToReferrer: false
       });
 
-    const {email, password, error, loading, redirectToReferrer} = values;
+    const {email, password, error, success, redirectToReferrer} = values;
       
     const {user} = isAuthenticated();
 
@@ -23,11 +23,11 @@ const SignIn = () => {
 
     const clickSubmit = (event) => {
         event.preventDefault();
-        setValues({...values, error: false, loading: true})
+        setValues({...values, error: false, success: true})
         signin({email, password})
           .then(data => {
             if (data.error) {
-              setValues({...values, error: data.error, loading:false})
+              setValues({...values, error: data.error, success:false})
             } else {
               authenticate(
                 data, () => {
@@ -60,8 +60,8 @@ const SignIn = () => {
         </div>
       )
     
-    const showLoading = () => (
-        loading && (
+    const showSuccess = () => (
+        success && (
           <div className="alert alert-info">
             <h2>Loading...</h2>
           </div>
@@ -100,7 +100,7 @@ const SignIn = () => {
         <div className="mt-5">
         <h4 className="text-center mb-5">Log In</h4>
         {showError()}
-        {showLoading()}
+        {showSuccess()}
         {signInForm()}
         {redirectUser()}
       
