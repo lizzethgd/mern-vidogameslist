@@ -15,15 +15,15 @@ export const getVideogames = () => {
     .catch(err => console.log(err))
 }
 
-/*
-export const read = (videogameId) => {
+
+/* export const read = (videogameId) => {
   return fetch(`${API}/videogame/${videogameId}`, {
     method: "GET"
   }).then(response => {
     return response.json();
   })
     .catch(err => console.log(err))
-}
+} */
 
 export const signin = user => {
   return fetch(`${API}/auth/signin`, {
@@ -66,6 +66,18 @@ export const authenticate = (data, next) => {
   }
 }
 
+export const isAuthenticated = () => {
+  if(typeof window == 'undefined') {
+    return false;
+  }
+  if (localStorage.getItem('jwt')) {
+    return JSON.parse(localStorage.getItem('jwt'));
+    //return localStorage.getItem('jwt')
+  }
+    return false;
+}
+
+
 export const signout = (next) => {
   if (typeof window !== 'undefined') {
     localStorage.removeItem('jwt');
@@ -80,18 +92,8 @@ export const signout = (next) => {
   }
 }
 
-export const isAuthenticated = () => {
-  if(typeof window == 'undefined') {
-    return false;
-  }
-  if (localStorage.getItem('jwt')) {
-    return JSON.parse(localStorage.getItem('jwt'));
-    // return localStorage.getItem('jwt')
-  }
-    return false;
-}
 //  add this to route later
-export const createCategory = (userId, token, category) => {
+/* export const createCategory = (userId, token, category) => {
   return fetch(`${API}/category/create/${userId}`, {
     method: 'POST',
     headers: {
@@ -107,9 +109,9 @@ export const createCategory = (userId, token, category) => {
     .catch(err => {
       console.log(err)
     })
-}
+} */
 
-export const getCategories = () => {
+/* export const getCategories = () => {
   return fetch(`${API}/category/categories`, {
     method: 'GET'
   })
@@ -119,8 +121,9 @@ export const getCategories = () => {
     .catch(err => {
       console.log(err)
     })
-}
-// ${userId}
+} */
+
+/* // ${userId}
 export const createVideogame = (userId, token, videogame) => {
   return fetch(`${API}/videogame/create/`, {
     method: 'POST',
@@ -136,5 +139,4 @@ export const createVideogame = (userId, token, videogame) => {
     .catch(err => {
       console.log(err)
     })
-}
-*/
+} */

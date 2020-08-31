@@ -39,7 +39,7 @@ const Navbar = () => {
                   </NavItem>
                   <NavItem className="nav-link">
                     <Link className="nav-link" to="/signin">
-                      Login
+                      SignIn
                     </Link>
                   </NavItem>
             

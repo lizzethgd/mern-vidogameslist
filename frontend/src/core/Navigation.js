@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Navbar, NavItem } from "reactstrap";
 
-//import { isAuthenticated, signout } from "./apiCore";
+import { isAuthenticated, signout } from "./apiCore";
 
 const isActive = (history, path) => {
   if (history.location.pathname === path) {
@@ -41,7 +41,7 @@ const Navigation = ({history}) => {
               </NavItem>
             </ul>
             <ul className="navbar-nav">
-              {/*!isAuthenticated() && (
+              {!isAuthenticated() && (
                 <>
                   <NavItem className="nav-link">
                     <Link className="nav-link" to="/signup">
@@ -74,7 +74,7 @@ const Navigation = ({history}) => {
                     </Link>
                   </NavItem>
                 </>
-                    )*/}
+                    )}
             </ul>
           </div>
         </div>

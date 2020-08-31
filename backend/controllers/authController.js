@@ -1,9 +1,3 @@
-exports.test = (req, res) => { 
-   console.log('probando')
-   return res.json({message: 'Esto funciona'})
-  };
-
-/*
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
@@ -26,7 +20,6 @@ exports.signup = (req, res) => {
     })
   })
 }
-
 
 exports.signin = (req, res) => { 
   // find the user based on email
@@ -58,6 +51,7 @@ exports.signout = (req, res) => {
   res.json({message: "Signout success"});
 };
 
+/*
 exports.userById = (req, res, next, id) => {
   User.findById(id).exec((err,user) => {
     if(err||!user) {
@@ -70,15 +64,15 @@ exports.userById = (req, res, next, id) => {
   });
 }
 
-// exports.isAdmin = (req, res, next) => {
-//   let user = req.profile && req.auth && req.profile._id == req.auth._id
-//     if(!user) {
-//       return res.status(403).json({
-//         error: 'Access denied'
-//       });
-//     }
-//   next();
-// }
+*/
+/* exports.isAdmin = (req, res, next) => {
+  let user = req.profile && req.auth && req.profile._id == req.auth._id
+    if(!user) {
+      return res.status(403).json({
+        error: 'Access denied'
+      });
+    }
+  next();
+} */
 
 // sing in / login
-*/
