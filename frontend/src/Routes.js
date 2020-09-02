@@ -27,11 +27,3 @@ const Routes = () => {
 }
 
 export default Routes;
-
-/*
-  <Route path="/videogame/:videogameId" exact component={Videogame}/>
-        <Route path="/signin" exact component={Signin} />
-        <Route path="/signup" exact component={SignUp} />
-        <Route path="/addcategory" exact component={AddCategory}/>
-        <Route path="/addvideogame" exact component={AddVideogame}/>
-        */
