@@ -10,6 +10,7 @@ require('dotenv').config();
 
 // Serving static files in express
 app.use(express.static('public'))
+app.use(express.static('public/assets'))
 
 // Middlewares
 app.use(morgan('dev'));
