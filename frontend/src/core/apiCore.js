@@ -92,8 +92,7 @@ export const signout = (next) => {
   }
 }
 
-//  add this to route later
-/* export const createCategory = (userId, token, category) => {
+export const createCategory = ( userId, token, category) => {
   return fetch(`${API}/category/create/${userId}`, {
     method: 'POST',
     headers: {
@@ -109,9 +108,9 @@ export const signout = (next) => {
     .catch(err => {
       console.log(err)
     })
-} */
+}
 
-/* export const getCategories = () => {
+export const getCategories = () => {
   return fetch(`${API}/category/categories`, {
     method: 'GET'
   })
@@ -121,11 +120,10 @@ export const signout = (next) => {
     .catch(err => {
       console.log(err)
     })
-} */
+}
 
-/* // ${userId}
 export const createVideogame = (userId, token, videogame) => {
-  return fetch(`${API}/videogame/create/`, {
+  return fetch(`${API}/videogame/create/${userId}`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -139,4 +137,4 @@ export const createVideogame = (userId, token, videogame) => {
     .catch(err => {
       console.log(err)
     })
-} */
+} 

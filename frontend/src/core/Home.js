@@ -27,9 +27,9 @@ const Home = () => {
     <div>
       <Navigation/>
       <div className="container">
-  <div className="row">
-  {videogames.map((videogame, i) => (
-    <div key={i} className="col-lg-4 col-md-6 col-sm-6 col-sm-6">
+      <div className="row">
+      {videogames.map((videogame, i) => (
+      <div key={i} className="col-lg-4 col-md-6 col-sm-6 col-sm-6">
       <Card videogame={videogame} />
     </div>
   ))}

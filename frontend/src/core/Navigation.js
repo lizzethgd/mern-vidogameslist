@@ -64,12 +64,8 @@ const Navigation = ({history}) => {
                     <Link to="/addvideogame" className="nav-link">Add Videogame</Link>
                   </NavItem>
                   <NavItem className="nav-link">
-                    <Link
-                      to="/"
-                      onClick={() =>
-                        signout(() => {
-                          history.push("/");
-                        })} className="nav-link">
+                    <Link to="/" className="nav-link"
+                          onClick= {() => signout(() => {history.push("/");})} >
                       Logout
                     </Link>
                   </NavItem>
