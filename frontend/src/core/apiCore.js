@@ -16,14 +16,14 @@ export const getVideogames = () => {
 }
 
 
-/* export const read = (videogameId) => {
+export const read = (videogameId) => {
   return fetch(`${API}/videogame/${videogameId}`, {
     method: "GET"
   }).then(response => {
     return response.json();
   })
     .catch(err => console.log(err))
-} */
+} 
 
 export const signin = user => {
   return fetch(`${API}/auth/signin`, {

@@ -1,4 +1,4 @@
-/*import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { read } from './apiCore';
 import Card from './Card';
 import Navigation from './Navigation';
@@ -6,6 +6,11 @@ import Navigation from './Navigation';
 const Videogame = (props) => {
   const [videogame, setVideogame] = useState({});
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const videogameId = props.match.params.videogameId;
+    loadSingleVideogame(videogameId);
+  }, [props])
 
   const loadSingleVideogame = videogameId => {
     read(videogameId).then(data => {
@@ -16,11 +21,6 @@ const Videogame = (props) => {
       }
     });
   }
-
-  useEffect(() => {
-    const videogameId = props.match.params.videogameId;
-    loadSingleVideogame(videogameId);
-  }, [props])
 
   return (
     <>
@@ -36,5 +36,4 @@ const Videogame = (props) => {
   )
 }
 
-export default Videogame;
-*/
+export default Videogame

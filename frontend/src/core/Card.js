@@ -13,15 +13,12 @@ const Card = ({videogame}) => {
         <p>{videogame.name}</p>
         <p>${videogame.price}</p>
         <p>{videogame.description}</p>
-        <button className="btn btn-success">Ver Mas</button>
+        <Link to={`/videogame/${videogame._id}`}>
+            <button className="btn btn-success">Ver Mas</button>
+          </Link>
       </div>
     </div>
   )
 }
 
 export default Card;
-/*
-<Link to={`/videogame/${videogame._id}`}>
-            <button className="btn btn-success">Ver Mas</button>
-          </Link>
-*/ 
