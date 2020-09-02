@@ -1,9 +1,7 @@
-import { API } from '../config';
-//import queryString from 'query-string'
 
 export const getVideogames = () => {
   return fetch(
-    `${API}/videogame/videogames`,
+    `/api/videogame/videogames`,
     {
       method: 'GET'
     }
@@ -17,7 +15,7 @@ export const getVideogames = () => {
 
 
 export const read = (videogameId) => {
-  return fetch(`${API}/videogame/${videogameId}`, {
+  return fetch(`/api/videogame/${videogameId}`, {
     method: "GET"
   }).then(response => {
     return response.json();
@@ -26,7 +24,7 @@ export const read = (videogameId) => {
 } 
 
 export const signin = user => {
-  return fetch(`${API}/auth/signin`, {
+  return fetch(`/api/auth/signin`, {
     method: "POST",
     headers: {
       Accept: 'application/json',
@@ -43,7 +41,7 @@ export const signin = user => {
 };
 
 export const signup = user => {
-  return fetch(`${API}/auth/signup`, { 
+  return fetch(`/api/auth/signup`, { 
     method: "POST",
     headers: {
       Accept: 'application/json',
@@ -82,7 +80,7 @@ export const signout = (next) => {
   if (typeof window !== 'undefined') {
     localStorage.removeItem('jwt');
     next();
-    return fetch(`${API}/auth/signout`, {
+    return fetch(`/api/auth/signout`, {
       method: 'GET',
     })
       .then(response => {
@@ -93,7 +91,7 @@ export const signout = (next) => {
 }
 
 export const createCategory = ( userId, token, category) => {
-  return fetch(`${API}/category/create/${userId}`, {
+  return fetch(`/api/category/create/${userId}`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -111,7 +109,7 @@ export const createCategory = ( userId, token, category) => {
 }
 
 export const getCategories = () => {
-  return fetch(`${API}/category/categories`, {
+  return fetch(`/api/category/categories`, {
     method: 'GET'
   })
     .then(response => {
@@ -123,7 +121,7 @@ export const getCategories = () => {
 }
 
 export const createVideogame = (userId, token, videogame) => {
-  return fetch(`${API}/videogame/create/${userId}`, {
+  return fetch(`/api/videogame/create/${userId}`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
