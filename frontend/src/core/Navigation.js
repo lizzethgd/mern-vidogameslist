@@ -18,7 +18,7 @@ const Navigation = ({history}) => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <a className="navbar-brand" href="#">
-            Videogames
+            Lizzy Videogames
           </a>
           <button
             className="navbar-toggler"

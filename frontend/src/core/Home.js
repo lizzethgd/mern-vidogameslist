@@ -5,7 +5,7 @@ import Card from './Card';
 
 const Home = () => {
   
-    const [videogames, setVideogames] = useState([]);
+  const [videogames, setVideogames] = useState([]);
   const [error, setError] = useState(false);
 
   const loadVideoGames = () => {
